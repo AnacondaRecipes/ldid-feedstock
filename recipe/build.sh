@@ -6,6 +6,11 @@ if [[ "$target_platform" == linux* ]]; then
   export LDFLAGS="$LDFLAGS -lcrypto"
 fi
 
+if [[ ${target_platform} =~ osx-.* ]]; then
+    LDFLAGS="${LDFLAGS} -mlinker-version=305"
+fi
+
+
 $CXX $CXXFLAGS -I. -O3 -g0 -DLDID_NOSMIME -DLDID_NOPLIST -c -o ldid.o ldid.cpp
 $CC $CFLAGS -I. -O3 -g0 -DLDID_NOSMIME -DLDID_NOPLIST -c -o lookup2.o lookup2.c
 $CXX $CXXFLAGS -I. -O3 -g0 -o ldid ldid.o lookup2.o $LDFLAGS
