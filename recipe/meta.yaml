@@ -19,6 +19,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - git  # [unix]
   host:
     - openssl  # [not osx]
 
