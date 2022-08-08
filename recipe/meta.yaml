@@ -1,5 +1,5 @@
 {% set name = "ldid" %}
-{% set version = "2.1.2" %}
+{% set version = "2.1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -19,6 +19,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - git  # [unix]
   host:
     - openssl  # [not osx]
 
