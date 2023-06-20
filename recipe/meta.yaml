@@ -21,9 +21,9 @@ requirements:
     - {{ compiler('cxx') }}
     - git  # [unix]
   host:
-    - openssl {{ openssl }} # [not osx]
+    - openssl {{ openssl }}  # [not osx]
   run:
-    - openssl 3.*  # [not osx]
+    - openssl  # [not osx]
 
 test:
   commands:
