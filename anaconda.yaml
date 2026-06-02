@@ -2,3 +2,4 @@ anaconda_config_version: 1
 upstream_sources:
   - git:
       identifier: git://git.saurik.com/ldid.git
+      prefix: v
