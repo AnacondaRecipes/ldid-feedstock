@@ -1,0 +1,25 @@
+From f8c4309a097ecdf978d52c0d90b00fa32e9870fe Mon Sep 17 00:00:00 2001
+From: Eric Lundby <elundby@anaconda.com>
+Date: Tue, 9 Jun 2026 13:06:29 -0600
+Subject: [PATCH] Replace std::auto_ptr with std::unique_ptr for C++17
+
+std::auto_ptr was removed in C++17. The Rule struct already uses
+reset() and get(), so unique_ptr is a drop-in replacement.
+
+---
+ ldid.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ldid.cpp b/ldid.cpp
+index 0d4cb73..f7cb5e8 100644
+--- a/ldid.cpp
++++ b/ldid.cpp
+@@ -2716,7 +2716,7 @@ struct Rule {
+     Mode mode_;
+     std::string code_;
+ 
+-    mutable std::auto_ptr<Expression> regex_;
++    mutable std::unique_ptr<Expression> regex_;
+ 
+     Rule(unsigned weight, Mode mode, const std::string &code) :
+         weight_(weight),
