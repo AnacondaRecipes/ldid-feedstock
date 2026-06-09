@@ -8,15 +8,18 @@ package:
 source:
   git_url: git://git.saurik.com/ldid.git
   git_rev: v{{ version }}
+  patches:
+    - 0001-Replace-std-auto_ptr-with-std-unique_ptr-for-C-17.patch
 
 build:
-  number: 3
+  number: 4
   skip: True  # [win]
   ignore_run_exports:
     - libcxx   # [osx]
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - git  # [unix]
